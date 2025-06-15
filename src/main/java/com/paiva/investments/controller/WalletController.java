@@ -66,4 +66,17 @@ public class WalletController {
 		return ResponseEntity.ok(service.calculateTotalTax(id));
 	}
 	
+	//add addAsset and removeAsset
+	@PutMapping("/{id}/add-asset/{assetId}")
+	public ResponseEntity<Void> addAssetInWallet(@PathVariable Long id,@PathVariable Long assetId){
+		service.addAssetInWallet(id, assetId);
+		return ResponseEntity.ok().build();
+	}
+	
+	@DeleteMapping("/{id}/remove-asset/{assetId}")
+	public ResponseEntity<Void> removeAssetFromWallet(@PathVariable Long id,@PathVariable Long assetId){
+		service.removeAsset(id, assetId);
+		return ResponseEntity.noContent().build();
+	}
+	
 }

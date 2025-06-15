@@ -4,18 +4,23 @@ import java.util.List;
 
 import org.springframework.stereotype.Service;
 
+import com.paiva.investments.exception.AssetNotFoundException;
 import com.paiva.investments.exception.WalletNotFoundException;
+import com.paiva.investments.model.Asset;
 import com.paiva.investments.model.Taxable;
 import com.paiva.investments.model.Wallet;
+import com.paiva.investments.repository.AssetRepository;
 import com.paiva.investments.repository.WalletRepository;
 
 @Service
 public class WalletService {
 
 	private final WalletRepository repository;
+	private final AssetRepository assetRepo;
 
-	public WalletService(WalletRepository repository) {
+	public WalletService(WalletRepository repository, AssetRepository assetRepo) {
 		this.repository = repository;
+		this.assetRepo = assetRepo;
 	}
 	
 	//findAll, findById, create(save), update, delete
@@ -57,6 +62,23 @@ public class WalletService {
 				.filter(asset -> asset instanceof Taxable)
 				.mapToDouble(asset -> ((Taxable)asset).calculateTax())
 				.sum();
+	}
+	
+	//add addAsset and removeAsset
+	public void addAssetInWallet(Long walletId, Long assetId) {
+		Wallet wallet = findById(walletId);
+		Asset assetToAdd = assetRepo.findById(assetId)
+				.orElseThrow(() -> new AssetNotFoundException("Asset not found. Id: "+ assetId));;
+		wallet.addAsset(assetToAdd);
+		repository.save(wallet);
+	}
+	
+	public void removeAsset(Long walletId, Long assetId) {
+		Wallet wallet = findById(walletId);
+		Asset assetToRemove = assetRepo.findById(assetId)
+				.orElseThrow(() -> new AssetNotFoundException("Asset not found. Id: "+ assetId));
+		wallet.removeAsset(assetToRemove);
+		repository.save(wallet);
 	}
 	
 }

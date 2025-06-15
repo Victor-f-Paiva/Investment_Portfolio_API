@@ -2,6 +2,8 @@ package com.paiva.investments.model;
 
 import java.time.LocalDate;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
 import jakarta.persistence.Enumerated;
@@ -32,6 +34,7 @@ public abstract class Asset {
 	private AssetType type;
 	
 	@ManyToOne
+	@JsonIgnore
 	private Wallet wallet;
 	
 	public Asset() {}
