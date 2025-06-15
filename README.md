@@ -116,6 +116,9 @@ src/main/java/com/paiva/investments
 | GET    | `/api/wallets/{id}/total-taxes` | Get total taxes for the wallet |
 | PUT    | `/api/wallets/{id}`             | Update a wallet                |
 | DELETE | `/api/wallets/{id}`             | Delete a wallet                |
+| PUT    | `/api/wallets/{id}/add-asset/{assetId}`             | Add asset in wallet                |
+| DELETE    | `/api/wallets/{id}/remove-asset/{assetId}`             | Remove asset from wallet                |
+
 
 ---
 
@@ -166,11 +169,9 @@ src/main/java/com/paiva/investments
 
 ```json
 {
-  "name": "Apple Inc.",
-  "ticker": "AAPL",
-  "quantity": 10,
-  "value": 1500.00,
-  "tax": 15.00
+  "name": "PETR4",
+  "value": 28.00,
+  "dividends": 24.00
 }
 ```
 
@@ -182,11 +183,9 @@ src/main/java/com/paiva/investments
 
 ```json
 {
-  "name": "FII ABC Plaza",
-  "ticker": "ABC11",
-  "quantity": 50,
-  "value": 5000.00,
-  "tax": 50.00
+  "name": "ABC11",
+  "value": 122.00,
+  "dividends": 13.23
 }
 ```
 
