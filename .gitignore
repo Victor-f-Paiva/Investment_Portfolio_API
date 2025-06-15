@@ -1,0 +1,72 @@
+HELP.md
+target/
+.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+!**/src/main/**/build/
+!**/src/test/**/build/
+
+### VS Code ###
+.vscode/
+
+# Arquivos de logs
+*.log
+
+# Eclipse
+/.classpath
+/.project
+/.settings/
+
+# Arquivos temporários do sistema operacional
+.DS_Store
+Thumbs.db
+
+# Arquivos temporários
+*.tmp
+*.temp
+
+# Arquivos do Maven Wrapper
+/mvnw.cmd
+/mvnw
+
+# Diretórios de dependências locais
+/.mvn/
+
+# Outros arquivos que podem ser ignorados
+*.iml
+
+# Configurações locais específicas (use .example)
+/application-local.properties
+/application-dev.properties
+/application-test.properties
+**/application.properties
+src/main/resources/application.properties
+
+# Arquivos temporários e binários do Java
+*.class
+*.jar
+*.war
+*.ear
