@@ -2,7 +2,7 @@ package com.paiva.investments.model;
 
 import java.time.LocalDate;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonBackReference;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;
@@ -16,6 +16,10 @@ import jakarta.persistence.ManyToOne;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Entity that represents an asset in the system.
+ * Contains asset details and relationships with enum type - STOCK or REAL_STATE_FUND.
+ */
 @Entity
 @Inheritance(strategy = InheritanceType.JOINED)
 @Getter
@@ -34,7 +38,7 @@ public abstract class Asset {
 	private AssetType type;
 	
 	@ManyToOne
-	@JsonIgnore
+	@JsonBackReference
 	private Wallet wallet;
 	
 	public Asset() {}

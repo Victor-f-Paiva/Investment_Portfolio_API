@@ -70,3 +70,11 @@ src/main/resources/application.properties
 *.jar
 *.war
 *.ear
+
+#root 
+.gitattributes
+.classpath
+.project
+HELP
+mvnw
+mvnw

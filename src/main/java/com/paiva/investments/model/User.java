@@ -3,6 +3,8 @@ package com.paiva.investments.model;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
@@ -13,6 +15,10 @@ import jakarta.persistence.Table;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Entity that represents a user in the system.
+ * Contains user details and relationships with wallets.
+ */
 @Entity
 @Setter
 @Getter
@@ -26,6 +32,7 @@ public class User {
 	private String email;
 	
 	@OneToMany (mappedBy = "user", cascade = CascadeType.ALL)
+	@JsonManagedReference
 	@Getter private List<Wallet> wallets = new ArrayList<>();
 
 	public User() {}
@@ -35,6 +42,11 @@ public class User {
 		this.email = email;
 	}
 	
+	/**
+	 * Adds a wallet to the specified user
+	 * 
+	 * @param wallet the wallet to add
+	 */
 	public void addWallet(Wallet wallet) {
 		wallets.add(wallet);
 		wallet.setUser(this);

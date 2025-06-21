@@ -6,6 +6,10 @@ import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Entity that represents an stock in the system.
+ * Contains asset details - name, value and dividends.
+ */
 @Entity
 @Getter @Setter 
 public class Stock extends Asset implements Taxable{
@@ -19,6 +23,12 @@ public class Stock extends Asset implements Taxable{
 		this.dividends = dividends;
 	}
 
+	/**
+	 * Calculates the tax on stock dividends
+	 * The tax rate applied is 15%
+	 * 
+	 * @return the amount of tax to be paid
+	 */
 	@Override
 	public double calculateTax() {
 		return dividends * 0.15; // tax = 15%

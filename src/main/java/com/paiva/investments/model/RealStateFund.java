@@ -6,6 +6,10 @@ import jakarta.persistence.Entity;
 import lombok.Getter;
 import lombok.Setter;
 
+/**
+ * Entity that represents an Real state fund in the system.
+ * Contains asset details - name, value and dividends.
+ */
 @Entity
 @Getter @Setter 
 public class RealStateFund extends Asset{
