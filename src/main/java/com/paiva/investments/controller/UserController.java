@@ -26,6 +26,11 @@ public class UserController {
 	
 	private final UserService service;
 
+	/**
+	 * Controller responsible for handling requests related to users.
+	 *
+	 * @param service the service that provides business logic for users
+	 */
 	public UserController(UserService service) {
 		this.service = service;
 	}

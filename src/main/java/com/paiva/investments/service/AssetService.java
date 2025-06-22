@@ -17,6 +17,11 @@ public class AssetService {
 	
 	private final AssetRepository repository;
 
+	/**
+	 * Service class responsible for handling business logic related to assets.
+	 *
+	 * @param repository the repository used to access asset data
+	 */
 	public AssetService(AssetRepository repository) {
 		this.repository = repository;
 	}
@@ -47,7 +52,7 @@ public class AssetService {
 	 * Creates a new asset.
 	 * 
 	 * @param asset the asset to create
-	 * @returns the created asset
+	 * @return the created asset
 	 */
 	public Asset create(Asset asset) {
 		return repository.save(asset);

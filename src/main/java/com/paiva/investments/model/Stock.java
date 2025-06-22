@@ -16,8 +16,18 @@ public class Stock extends Asset implements Taxable{
 	
 	private double dividends;
 	
+	/**
+	 * Default constructor required by JPA.
+	 */
 	public Stock() {}
 
+	/**
+	 * Creates a asset with type Stock with the specified name, value and dividends
+	 * 
+	 * @param name the name of the asset
+	 * @param value the value of the asset
+	 * @param dividends the dividend yield
+	 */
 	public Stock(String name, double value, double dividends) {
 		super(name, value, LocalDate.now(), AssetType.STOCK);
 		this.dividends = dividends;

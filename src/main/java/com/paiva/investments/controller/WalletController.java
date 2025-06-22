@@ -27,6 +27,11 @@ public class WalletController {
 	
 	private final WalletService service;
 
+	/**
+	 * Controller responsible for handling requests related to wallets.
+	 *
+	 * @param service the service that provides business logic for wallets
+	 */
 	public WalletController(WalletService service) {
 		this.service = service;
 	}

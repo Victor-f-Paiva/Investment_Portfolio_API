@@ -11,6 +11,11 @@ public class AssetNotFoundException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Exception thrown when an asset is not found.
+	 *
+	 * @param message the detail message explaining the exception
+	 */
 	public AssetNotFoundException(String message) {
 		super(message);
 	}

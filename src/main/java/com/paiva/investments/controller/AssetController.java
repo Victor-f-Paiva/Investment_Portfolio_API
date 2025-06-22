@@ -28,6 +28,11 @@ public class AssetController {
 	
 	private final AssetService service;
 
+	/**
+	 * Controller responsible for handling requests related to assets.
+	 *
+	 * @param service the service that provides business logic for assets
+	 */
 	public AssetController(AssetService service) {
 		this.service = service;
 	}

@@ -20,6 +20,12 @@ public class UserService {
 	private final UserRepository repository;
 	private final WalletRepository walletRepository;
 
+	/**
+	 * Service class responsible for handling business logic related to users and their wallets.
+	 *
+	 * @param repository the repository used to manage user data
+	 * @param walletRepository the repository used to manage wallet data associated with users
+	 */
 	public UserService(UserRepository repository, WalletRepository walletRepository) {
 		this.repository = repository;
 		this.walletRepository = walletRepository;
@@ -51,7 +57,7 @@ public class UserService {
 	 * Creates a new user.
 	 * 
 	 * @param user the user to create
-	 * @returns the created user
+	 * @return the created user
 	 */
 	public User create(User user) {
 		return repository.save(user);

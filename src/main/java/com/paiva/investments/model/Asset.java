@@ -41,8 +41,19 @@ public abstract class Asset {
 	@JsonBackReference
 	private Wallet wallet;
 	
+	/**
+	 * Default constructor required by JPA.
+	 */
 	public Asset() {}
 
+	/**
+	 * Creates an asset with the specified name, value, purchase date and asset type.
+	 * 
+	 * @param name the name of the asset
+	 * @param value the value of the asset
+	 * @param purchaseDate the purchase date of the asset
+	 * @param type the type of the asset - stock or real state fund
+	 */
 	public Asset(String name, double value, LocalDate purchaseDate, AssetType type) {
 		this.name = name;
 		this.value = value;

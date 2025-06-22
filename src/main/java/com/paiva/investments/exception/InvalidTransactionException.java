@@ -11,6 +11,11 @@ public class InvalidTransactionException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Exception thrown when a transaction is invalid.
+	 *
+	 * @param msg the detail message explaining the exception
+	 */
 	public InvalidTransactionException(String msg) {
 		super(msg);
 	}

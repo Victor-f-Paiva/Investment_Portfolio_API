@@ -22,6 +22,12 @@ public class WalletService {
 	private final WalletRepository repository;
 	private final AssetRepository assetRepo;
 
+	/**
+	 * Service class responsible for handling business logic related to wallets and their assets.
+	 *
+	 * @param repository the repository used to manage wallet data
+	 * @param assetRepo the repository used to manage asset data within wallets
+	 */
 	public WalletService(WalletRepository repository, AssetRepository assetRepo) {
 		this.repository = repository;
 		this.assetRepo = assetRepo;
@@ -53,7 +59,7 @@ public class WalletService {
 	 * Creates a new wallet.
 	 * 
 	 * @param wallet the wallet to create
-	 * @returns the created wallet
+	 * @return the created wallet
 	 */
 	public Wallet create(Wallet wallet) {
 		return repository.save(wallet);

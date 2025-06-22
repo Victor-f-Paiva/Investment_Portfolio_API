@@ -11,6 +11,11 @@ public class WalletNotFoundException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Exception thrown when a wallet is not found in the system.
+	 *
+	 * @param msg the detail message explaining the exception
+	 */
 	public WalletNotFoundException(String msg) {
 		super(msg);
 	}

@@ -11,6 +11,11 @@ public class UserNotFoundException extends RuntimeException{
 
 	private static final long serialVersionUID = 1L;
 
+	/**
+	 * Exception thrown when a user is not found in the system.
+	 *
+	 * @param msg the detail message explaining the exception
+	 */
 	public UserNotFoundException(String msg) {
 		super(msg);
 	}

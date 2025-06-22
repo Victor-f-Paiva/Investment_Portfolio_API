@@ -1,1 +1,6 @@
+com.paiva.investments
+com.paiva.investments.controller
+com.paiva.investments.exception
 com.paiva.investments.model
+com.paiva.investments.repository
+com.paiva.investments.service

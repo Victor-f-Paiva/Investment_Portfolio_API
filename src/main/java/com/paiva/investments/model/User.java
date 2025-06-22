@@ -35,8 +35,17 @@ public class User {
 	@JsonManagedReference
 	@Getter private List<Wallet> wallets = new ArrayList<>();
 
+	/**
+	 * Default constructor required by JPA.
+	 */
 	public User() {}
 	
+	/**
+	 * Creates a user with the specified name and email,
+	 * 
+	 * @param name the name of the user
+	 * @param email the email of the user
+	 */
 	public User(String name, String email) {
 		this.name = name;
 		this.email = email;

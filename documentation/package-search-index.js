@@ -1,1 +1,1 @@
-packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.paiva.investments.model"}];updateSearchResults();
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"com.paiva.investments.controller"},{"l":"com.paiva.investments.exception"},{"l":"com.paiva.investments.model"},{"l":"com.paiva.investments.repository"},{"l":"com.paiva.investments.service"}];updateSearchResults();
