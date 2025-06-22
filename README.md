@@ -102,6 +102,8 @@ src/main/java/com/paiva/investments
 | GET    | `/api/users/{id}` | Get user by ID |
 | PUT    | `/api/users/{id}` | Update user    |
 | DELETE | `/api/users/{id}` | Delete user    |
+| PUT    | `/api/users/{userId}/add-wallet/{walletId}` | Associate a wallet to a user    |
+
 
 ---
 
@@ -131,7 +133,7 @@ src/main/java/com/paiva/investments
 | POST   | `/api/assets/realstatefunds` | Create a real estate fund |
 | GET    | `/api/assets`                | List all assets           |
 | GET    | `/api/assets/{id}`           | Get asset by ID           |
-| PUT    | `/api/assets/{id}`           | Update an asset           |
+| PUT    | `/api/assets/update/{id}`           | Update an asset           |
 | DELETE | `/api/assets/{id}`           | Delete an asset           |
 
 ---
@@ -163,16 +165,29 @@ src/main/java/com/paiva/investments
 
 ---
 
+### 💼 Associate a Wallet to a User
+
+**PUT** `/api/users/1/add-wallet/1`
+
+
+---
+
 ### 📈 Create Stock
 
 **POST** `/api/assets/stocks`
 
 ```json
 {
-  "name": "PETR4",
-  "value": 28.00,
-  "dividends": 24.00
+  "name": "ITSA4",
+  "value": 12.34,
+  "purchaseDate": "2024-06-21",
+  "dividends": 0.5,
+  "type": "STOCK",
+  "wallet": {
+    "id": 1
+  }
 }
+
 ```
 
 ---
@@ -183,11 +198,22 @@ src/main/java/com/paiva/investments
 
 ```json
 {
-  "name": "ABC11",
-  "value": 122.00,
-  "dividends": 13.23
+  "name": "HGLG11",
+  "value": 150.0,
+  "purchaseDate": "2024-06-21",
+  "dividends": 1.2,
+  "type": "REAL_STATE_FUND",
+  "wallet": {
+    "id": 1
+  }
 }
 ```
+
+---
+### 💼 Adds an Asset to a Wallet
+
+**PUT** `/api/wallets/1/add-asset/1`
+
 
 ---
 
@@ -196,20 +222,23 @@ src/main/java/com/paiva/investments
 **GET** `/api/wallets/{id}/total-value`
 
 ---
+## 💡 Lessons Learned & Challenges
 
-## 🏗️ Database
+During the development of this project, I faced some interesting challenges that helped me grow as a developer:
 
-The database schema is generated automatically by JPA using:
+* Understanding the relationship between entities (User, Wallet, and Asset) was challenging at first, especially when designing the database schema and repositories. Applying domain-driven design principles helped me clarify and structure these relationships.
 
-```properties
-spring.jpa.hibernate.ddl-auto=update
-```
+* I initially struggled with the annotations, but throughout the process, I started recognizing their patterns, which made the implementation much easier.
 
-### ✅ You only need to create the database manually:
+* After completing the code and starting the tests, I encountered an infinite loop issue when associating a wallet with a user. The JSON response kept looping because the User entity referenced the Wallet, and the Wallet also referenced the User. However, after researching, I discovered the annotations `@JsonIgnore`, `@JsonManagedReference`, and `@JsonBackReference`, which resolved the problem.
 
-```sql
-CREATE DATABASE investments;
-```
+* During testing, I noticed that some methods were still missing, such as associating assets with wallets and linking wallets to users. From that point, refactoring became much easier due to the foundation already built in the API.
+
+* While implementing these new features, I also realized it made more sense to have functions for adding and removing assets from wallets. Therefore, I added these methods to the appropriate class.
+
+* Organizing the service layer and understanding the separation of concerns between controllers and services was a key learning experience.
+
+These challenges enhanced my problem-solving skills, improved my code quality, and made me more comfortable with backend development using Java and Spring Boot.
 
 ---
 
